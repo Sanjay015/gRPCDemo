@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+
+service MLServer {
+  rpc image_similarity(stream ImageBuffer) returns (Reply) {}
+}
+
+message ImageBuffer {
+  bytes buffer = 1;
+  int32 fileindex = 2;
+}
+
+message Request {
+  string name = 1;
+}
+
+message Reply {
+  float similarity = 1;
+}
